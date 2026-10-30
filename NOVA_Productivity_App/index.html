@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090812" />
+    <meta
+      name="description"
+      content="NOVA — your surreal productivity universe."
+    />
+    <title>NOVA — Plan. Track. Focus. Glow.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="starfield" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="NOVA home"
+        ><span class="brand-star">✳</span> NOVA<span class="brand-dot"
+          >.</span
+        ></a
+      >
+      <nav class="main-nav" id="mainNav">
+        <a href="#home" class="active">Home</a><a href="#dashboard">Features</a
+        ><a href="#calendar">Calendar</a><a href="#insights">Stats</a
+        ><a href="#about">About</a>
+      </nav>
+      <div class="header-actions">
+        <button
+          class="icon-button"
+          id="themeToggle"
+          aria-label="Toggle color theme"
+          title="Toggle theme"
+        >
+          ☾
+        </button>
+        <button
+          class="icon-button menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle navigation"
+        >
+          ☰
+        </button>
+        <button class="login-button" id="profileButton">Your space ↗</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="status-dot"></span> YOUR PERSONAL PRODUCTIVITY UNIVERSE
+          </div>
+          <h1>
+            MAKE YOUR<br />PLANS <span class="chrome-word">GLOW</span
+            ><span class="pink-dot">.</span>
+          </h1>
+          <p class="hero-subtitle">
+            A little structure. A lot of imagination.<br />Make space for the
+            version of you you're becoming.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-gradient" href="#dashboard"
+              >ENTER MY UNIVERSE <span>↘</span></a
+            ><a class="text-link" href="#features">EXPLORE THE MAGIC ↗</a>
+          </div>
+          <div class="hero-mantra">
+            <span>✳ PLAN</span><span>✳ TRACK</span><span>✳ FOCUS</span
+            ><span>✳ ACHIEVE</span>
+          </div>
+        </div>
+        <div
+          class="hero-art"
+          aria-label="Surreal CSS artwork with a chrome planet and floating stars"
+        >
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-orbit orbit-three"></div>
+          <div class="cosmic-planet"><div class="planet-glint"></div></div>
+          <div class="chrome-moon"></div>
+          <div class="liquid-ribbon ribbon-one"></div>
+          <div class="liquid-ribbon ribbon-two"></div>
+          <div class="hero-star star-a">✦</div>
+          <div class="hero-star star-b">✳</div>
+          <div class="hero-star star-c">✧</div>
+          <div class="hero-bunny">
+            <div class="bunny-ear ear-left"></div>
+            <div class="bunny-ear ear-right"></div>
+            <div class="bunny-head">
+              <span class="bunny-eye eye-left"></span
+              ><span class="bunny-eye eye-right"></span
+              ><span class="bunny-blush blush-left"></span
+              ><span class="bunny-blush blush-right"></span
+              ><span class="bunny-smile"></span>
+            </div>
+            <div class="bunny-body"></div>
+          </div>
+          <div class="sticky-note note-one">MAKE<br />IT HAPPEN ♡</div>
+          <div class="sticky-note note-two">STAY<br />CURIOUS ✦</div>
+          <div class="art-caption caption-top">FIG. 01 / YOUR NEXT CHAPTER</div>
+          <div class="art-caption caption-bottom">
+            DESIGNED FOR DREAMERS + DOERS
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <span>SCROLL TO DISCOVER ↓</span><span>YOUR DAY, YOUR DIMENSION</span
+          ><span id="todayLabel"></span>
+        </div>
+      </section>
+
+      <section class="app-shell section-wrap" id="dashboard">
+        <aside class="sidebar">
+          <div class="side-brand">
+            NOVA<span>✳</span><small>PERSONAL SPACE</small>
+          </div>
+          <button class="side-link selected" data-view="overview">
+            <span>⌂</span> Dashboard
+          </button>
+          <button class="side-link" data-view="tasks">
+            <span>☑</span> My tasks <b id="sideTaskCount">0</b>
+          </button>
+          <button class="side-link" data-view="calendar">
+            <span>▦</span> Calendar
+          </button>
+          <button class="side-link" data-view="habits">
+            <span>✿</span> Habits
+          </button>
+          <button class="side-link" data-view="focus">
+            <span>◷</span> Focus timer
+          </button>
+          <button class="side-link" data-view="notes">
+            <span>▤</span> Notes
+          </button>
+          <button class="side-link" data-view="goals">
+            <span>◎</span> Goals
+          </button>
+          <div class="sidebar-bottom">
+            <span class="mini-orb">✧</span>
+            <p>Small steps<br />still move stars.</p>
+            <span class="side-version">NOVA / 1.0</span>
+          </div>
+        </aside>
+
+        <div class="dashboard-main">
+          <div class="dashboard-top">
+            <div>
+              <p class="eyebrow">YOUR LITTLE CORNER OF THE COSMOS</p>
+              <h2 id="greeting">Good evening, dreamer! <span>✦</span></h2>
+              <p class="muted">One tiny step at a time. You've got this.</p>
+            </div>
+            <button class="avatar" id="nameButton" title="Personalize greeting">
+              N<span>✦</span>
+            </button>
+          </div>
+          <div class="stats-row">
+            <article class="stat-card stat-pink">
+              <span class="stat-icon">♡</span
+              ><span class="stat-label">TASKS TODAY</span
+              ><strong id="todayStat">0/0</strong
+              ><small>little wins in progress</small>
+            </article>
+            <article class="stat-card stat-purple">
+              <span class="stat-icon">✧</span
+              ><span class="stat-label">UP NEXT</span
+              ><strong id="upcomingStat">0</strong
+              ><small>tasks waiting for you</small>
+            </article>
+            <article class="stat-card stat-blue">
+              <span class="stat-icon">◷</span
+              ><span class="stat-label">FOCUS TIME</span
+              ><strong id="focusStat">0m</strong
+              ><small>minutes in this session</small>
+            </article>
+            <article class="stat-card stat-green">
+              <span class="stat-icon">✿</span
+              ><span class="stat-label">COMPLETED</span
+              ><strong id="completedStat">0</strong
+              ><small>reasons to be proud</small>
+            </article>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel tasks-panel" id="tasksPanel">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">YOUR MISSION BOARD</span>
+                  <h3>Today's tasks <span class="tiny-spark">✳</span></h3>
+                </div>
+                <button class="small-gradient" id="openTaskModal">
+                  ＋ Add task
+                </button>
+              </div>
+              <div class="task-filters">
+                <button class="filter-chip active" data-filter="all">All</button
+                ><button class="filter-chip" data-filter="open">To do</button
+                ><button class="filter-chip" data-filter="done">Done</button
+                ><select id="priorityFilter" aria-label="Filter by priority">
+                  <option value="all">All priorities</option>
+                  <option value="High">High priority</option>
+                  <option value="Medium">Medium priority</option>
+                  <option value="Low">Low priority</option>
+                </select>
+              </div>
+              <div id="taskList" class="task-list"></div>
+              <div class="empty-state" id="emptyTasks" hidden>
+                <span>✧</span><strong>Your universe is wide open.</strong>
+                <p>Add your first task and make it happen.</p>
+                <button class="small-gradient" id="emptyAddTask">
+                  ＋ Create a task
+                </button>
+              </div>
+              <div class="task-panel-foot">
+                <span id="taskSummary">0 tasks in your orbit</span
+                ><button class="plain-button" id="clearCompleted">
+                  Clear completed ↗
+                </button>
+              </div>
+            </section>
+
+            <section class="panel calendar-panel" id="calendar">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">MAKE TIME FOR WHAT MATTERS</span>
+                  <h3>Your calendar</h3>
+                </div>
+                <div class="calendar-arrows">
+                  <button id="prevMonth" aria-label="Previous month">‹</button
+                  ><button id="nextMonth" aria-label="Next month">›</button>
+                </div>
+              </div>
+              <div class="calendar-month">
+                <strong id="monthTitle">Month 2026</strong>
+                <div class="view-toggle">
+                  <button class="active" data-calendar-view="month">
+                    Month</button
+                  ><button data-calendar-view="week">Week</button>
+                </div>
+              </div>
+              <div class="calendar-grid" id="calendarGrid"></div>
+              <div class="calendar-legend">
+                <span><i class="legend-pink"></i> Task day</span
+                ><span><i class="legend-blue"></i> Today</span
+                ><button class="plain-button" id="calendarAdd">
+                  ＋ Add event
+                </button>
+              </div>
+              <div class="selected-day" id="selectedDayInfo">
+                Select a date to see what's planned.
+              </div>
+            </section>
+          </div>
+
+          <div class="bottom-grid" id="features">
+            <section class="panel focus-panel" id="focusPanel">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">ONE THING AT A TIME</span>
+                  <h3>Focus portal <span class="tiny-spark">✦</span></h3>
+                </div>
+                <span class="focus-mode-label" id="focusModeLabel"
+                  >POMODORO</span
+                >
+              </div>
+              <div class="focus-tabs">
+                <button class="active" data-minutes="25" data-mode="Pomodoro">
+                  Pomodoro</button
+                ><button data-minutes="5" data-mode="Short break">
+                  Short break</button
+                ><button data-minutes="15" data-mode="Long break">
+                  Long break
+                </button>
+              </div>
+              <div class="timer-wrap">
+                <div class="timer-ring" id="timerRing">
+                  <div class="timer-inner">
+                    <strong id="timerDisplay">25:00</strong
+                    ><span>TIME TO FOCUS</span>
+                  </div>
+                </div>
+              </div>
+              <div class="timer-controls">
+                <button class="button button-gradient" id="timerStart">
+                  START FOCUS</button
+                ><button
+                  class="icon-button"
+                  id="timerReset"
+                  aria-label="Reset timer"
+                >
+                  ↺
+                </button>
+              </div>
+              <p class="focus-caption">
+                Mute the noise. Make a little progress. ✧
+              </p>
+            </section>
+            <section class="panel habits-panel" id="habitsPanel">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">TINY RITUALS, BIG ENERGY</span>
+                  <h3>Habit garden</h3>
+                </div>
+                <button class="small-gradient" id="addHabitButton">
+                  ＋ Habit
+                </button>
+              </div>
+              <div class="habit-list" id="habitList"></div>
+              <div class="streak-footer">
+                <div>
+                  <span class="eyebrow">TODAY'S BLOOM</span
+                  ><strong id="habitProgress">0 / 0 complete</strong>
+                </div>
+                <div class="progress-track">
+                  <span id="habitProgressBar"></span>
+                </div>
+              </div>
+            </section>
+            <section class="panel notes-panel" id="notesPanel">
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">CATCH THAT THOUGHT</span>
+                  <h3>Idea cloud</h3>
+                </div>
+                <span class="note-icon">✎</span>
+              </div>
+              <textarea
+                id="quickNote"
+                placeholder="A thought, a dream, a reminder to yourself..."
+              ></textarea>
+              <div class="note-footer">
+                <span id="noteSaved">Saved in this browser</span
+                ><button class="small-gradient" id="saveNote">
+                  Save note ↗
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <section class="panel goals-panel" id="goalsPanel">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">THE BIG PICTURE</span>
+                <h3>Dreams in progress</h3>
+              </div>
+              <button class="small-gradient" id="addGoalButton">
+                ＋ Add goal
+              </button>
+            </div>
+            <div id="goalList" class="goal-list"></div>
+          </section>
+
+          <section class="panel insights-panel" id="insights">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">YOUR MOMENTUM, VISUALIZED</span>
+                <h3>Little wins add up</h3>
+              </div>
+              <span class="insight-sticker">KEEP GLOWING ✦</span>
+            </div>
+            <div class="insights-content">
+              <div class="insight-number">
+                <strong id="insightCompleted">0</strong
+                ><span>tasks completed all-time</span>
+              </div>
+              <div class="week-bars" id="weekBars"></div>
+              <div class="insight-quote">
+                “You don't have to do it all today.<br /><em
+                  >Just the next little thing.</em
+                >”
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="feature-strip section-wrap" id="about">
+        <div>
+          <span class="eyebrow">A SOFTER WAY TO GET THINGS DONE</span>
+          <h2>PRODUCTIVITY,<br /><span>WITH PERSONALITY.</span></h2>
+        </div>
+        <p>
+          NOVA is your little corner of the internet to organize tasks, make
+          time for yourself, and celebrate the small stuff. Your tasks stay in
+          this browser using local storage.
+        </p>
+        <a href="#dashboard" class="button button-light"
+          >BACK TO MY UNIVERSE ↑</a
+        >
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <dialog class="modal" id="taskModal">
+      <form id="taskForm" method="dialog">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow">ADD A NEW MISSION</span>
+            <h2 id="taskModalTitle">Make it happen.</h2>
+          </div>
+          <button
+            type="button"
+            class="modal-close"
+            data-close="taskModal"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <label
+          >Task name<input
+            id="taskTitle"
+            required
+            maxlength="90"
+            placeholder="e.g. Finish my project UI"
+        /></label>
+        <label
+          >A little detail
+          <textarea
+            id="taskDescription"
+            rows="2"
+            maxlength="240"
+            placeholder="What does done look like? (optional)"
+          ></textarea>
+        </label>
+        <div class="form-two">
+          <label>Date<input id="taskDate" type="date" required /></label
+          ><label>Time<input id="taskTime" type="time" /></label>
+        </div>
+        <div class="form-two">
+          <label
+            >Priority<select id="taskPriority">
+              <option>Low</option>
+              <option selected>Medium</option>
+              <option>High</option>
+            </select></label
+          ><label
+            >Category<select id="taskCategory">
+              <option>Personal</option>
+              <option>Study</option>
+              <option>Work</option>
+              <option>Health</option>
+              <option>Creative</option>
+            </select></label
+          >
+        </div>
+        <label class="check-label"
+          ><input id="taskReminder" type="checkbox" /> Remind me with a browser
+          notification (when permitted)</label
+        >
+        <input id="editingTaskId" type="hidden" />
+        <button class="button button-gradient modal-submit" type="submit">
+          SAVE TO MY UNIVERSE ✦
+        </button>
+      </form>
+    </dialog>
+
+    <dialog class="modal compact-modal" id="habitModal">
+      <form id="habitForm" method="dialog">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow">PLANT A NEW RITUAL</span>
+            <h2>Grow a habit.</h2>
+          </div>
+          <button type="button" class="modal-close" data-close="habitModal">
+            ×
+          </button>
+        </div>
+        <label
+          >Habit name<input
+            id="habitName"
+            required
+            maxlength="50"
+            placeholder="e.g. Read 10 pages" /></label
+        ><button class="button button-gradient modal-submit" type="submit">
+          PLANT HABIT ✿
+        </button>
+      </form>
+    </dialog>
+
+    <dialog class="modal compact-modal" id="goalModal">
+      <form id="goalForm" method="dialog">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow">A DREAM WITH A DIRECTION</span>
+            <h2>Set a goal.</h2>
+          </div>
+          <button type="button" class="modal-close" data-close="goalModal">
+            ×
+          </button>
+        </div>
+        <label
+          >Goal name<input
+            id="goalName"
+            required
+            maxlength="70"
+            placeholder="e.g. Build my portfolio" /></label
+        ><label>Target date<input id="goalDate" type="date" /></label
+        ><button class="button button-gradient modal-submit" type="submit">
+          ADD MY GOAL ↗
+        </button>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
